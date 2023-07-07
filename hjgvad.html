@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.nav-link').click(function() {
+                $('.content').removeClass('active');
+                $($(this).attr('href')).addClass('active');
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a class="nav-link" href="#home">Home</a></li>
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div id="home" class="content active">
+            <h1>Home</h1>
+            <p>Welcome to the home page!</p>
+        </div>
+        <div id="about" class="content">
+            <h1>About</h1>
+            <p>Learn more about us on the about page.</p>
+        </div>
+        <div id="contact" class="content">
+            <h1>Contact</h1>
+            <p>Get in touch with us on the contact page.</p>
+        </div>
+    </main>
+</body>
+</html>

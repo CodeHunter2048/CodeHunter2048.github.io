@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('a[data-content]').click(function() {
+                $('.content').removeClass('active');
+                $('#' + $(this).attr('data-content')).addClass('active');
+            });
+        });
+
+    </script>
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+            <img src="logo.png" alt="logopic" class="logopic">
+        
+        <nav>
+            <ul>
+                <li><a href="#home" data-content="home">HOME</a></li>
+                <li><a href="#services" data-content="services">SERVICES</a></li>
+                <li><a href="#equipment" data-content="equipment">EQUIPMENT</a></li>
+                <li><a href="#about" data-content="about">ABOUT US</a></li>
+                <li><a href="#contact" data-content="contact">CONTACT</a></li>
+                <li><a href="#media" data-content="media">MEDIA</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <div id="home" class=" content active">
+            <h1>Home</h1>
+            <p>Welcome to our home page!</p>
+        </div>
+
+
+        <div id="services" class="content">
+            <h1>Services</h1>
+            <p>Learn more about our services.</p>
+        </div>
+
+
+        <div id="equipment" class="content">
+            <h1>Equipment</h1>
+            <p>Check out our equipment.</p>
+        </div>
+
+
+        <div id="about" class="content">
+            <h1>About Us</h1>
+            <p>Find out more about our company.</p>
+        </div>
+
+
+        <div id="contact" class="content">
+            <h1>Contact</h1>
+            <p>Get in touch with us.</p>
+        </div>
+
+        
+        <div id="media" class="content">
+            <h1>Media</h1>
+            <p>See our latest media coverage.</p>
+        </div>
+    </main>
+
+    <footer>
+
+
+    </footer>
+</body>
+</html>

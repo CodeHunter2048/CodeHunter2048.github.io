@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+.hidden {
+  display: none;
+}
+#rent-form {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black;
+}
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+.submit-btn{
+    width: 130px;
+    max-height: 50px;
+    align-self:last baseline;
+
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.15em solid #126b37;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#126b37;
+    text-align:center;
+    transition: all 0.2s;
+    margin-top: 50px;
+}
+.submit-btn:hover{
+    color:#e3b40b;
+    background-color:#126b37;
+}
+</style>
+</head>
+<body>
+
+<button id="open-button" onclick="myFunction()">Click me</button>
+
+<div id="overlay" class="hidden"></div>
+
+<span id="span-rent-form" class="hidden">
+  <section id="rent-form">
+    <h2>Rent Equipment</h2>
+    <form>
+      <label for="equipment-name">Name:</label>
+      <input type="text" id="equipment-name" name="equipment-name" required><br>
+      <label for="rental-duration">Rental Duration:</label>
+      <select id="rental-duration" name="rental-duration">
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select><br>
+      <label for="pickup-date">Pickup Date:</label>
+      <input type="date" id="pickup-date" name="pickup-date" required><br>
+      <label for="return-date">Return Date:</label>
+      <input type="date" id="return-date" name="return-date" required><br>
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" required><br>
+      <label for="contact-info">Contact Information:</label><br>
+      <textarea id="contact-info" name="contact-info" required></textarea><br>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </section>
+</span>
+
+<script>
+function myFunction() {
+  document.getElementById("span-rent-form").classList.remove("hidden");
+  document.getElementById("overlay").classList.remove("hidden");
+}
+
+document.getElementById("open-button").addEventListener("click", function(event) {
+    event.stopPropagation();
+});
+
+document.addEventListener("click", function(event) {
+    var rentForm = document.getElementById("rent-form");
+    if (event.target != rentForm && !rentForm.contains(event.target)) {
+        document.getElementById("span-rent-form").classList.add("hidden");
+        document.getElementById("overlay").classList.add("hidden");
+    }
+});
+</script>
+
+</body>
+</html>
